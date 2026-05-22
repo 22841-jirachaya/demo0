@@ -151,3 +151,75 @@
 
         .info-content .value {
             font-size: 1.05rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* ตกแต่งแท็กสีเขียวที่ชอบเพิ่มความกิ๊บเก๋ */
+        .color-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .color-dot {
+            width: 14px;
+            height: 14px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="card-header">
+            <div class="avatar-container">
+                <i class="fa-solid fa-child-dress"></i>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <h1 class="name">ด.ญ. จิรชยา แสนสัจจะ</h1>
+            <span class="nickname">ชื่อเล่น: <b>น้องปิม</b></span>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-icon icon-birthday">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">วันเกิด</span>
+                        <span class="value">10 พฤษภาคม 2555</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon icon-food">
+                        <i class="fa-solid fa-bowl-food"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">อาหารที่ชอบ</span>
+                        <span class="value">ก๋วยเตี๋ยว 🍜</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon icon-color">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div class="info-content">
+                        <span class="label">สีที่ชอบ</span>
+                        <span class="value color-tag">
+                            <span class="color-dot"></span> สีเขียว
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
