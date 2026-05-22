@@ -31,7 +31,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .profile-card {
@@ -135,12 +135,16 @@
             align-items: center;
             margin-right: 15px;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         /* แยกสีไอคอนตามหัวข้อเพื่อความสวยงาม */
         .icon-birthday { background-color: #ffe5ec; color: #ff5c8a; }
         .icon-food { background-color: #fef1d2; color: var(--accent-color); }
         .icon-color { background-color: #e2f0d9; color: #2e7d32; }
+        .icon-subject { background-color: #e0f2fe; color: #0284c7; }
+        .icon-friends { background-color: #f3e8ff; color: #9333ea; }
+        .icon-cartoon { background-color: #ffedd5; color: #ea580c; }
 
         .info-content .label {
             font-size: 0.85rem;
@@ -176,50 +180,4 @@
 
     <div class="profile-card">
         <div class="card-header">
-            <div class="avatar-container">
-                <i class="fa-solid fa-child-dress"></i>
-            </div>
-        </div>
-
-        <div class="card-body">
-            <h1 class="name">ด.ญ. จิรชยา แสนสัจจะ</h1>
-            <span class="nickname">ชื่อเล่น: <b>น้องปิม</b></span>
-
-            <div class="info-list">
-                <div class="info-item">
-                    <div class="info-icon icon-birthday">
-                        <i class="fa-solid fa-cake-candles"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">วันเกิด</span>
-                        <span class="value">10 พฤษภาคม 2555</span>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon icon-food">
-                        <i class="fa-solid fa-bowl-food"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">อาหารที่ชอบ</span>
-                        <span class="value">ก๋วยเตี๋ยว 🍜</span>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon icon-color">
-                        <i class="fa-solid fa-palette"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">สีที่ชอบ</span>
-                        <span class="value color-tag">
-                            <span class="color-dot"></span> สีเขียว
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
+            <div class="avatar-container
