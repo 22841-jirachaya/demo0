@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว - น้องปิม</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2ec4b6; /* สีเขียวมินต์สดใส */
+            --secondary-color: #cbf3f0; /* สีเขียวพาสเทลอ่อน */
+            --accent-color: #ff9f1c; /* สีส้มตัดสลับให้ดูมีมิติ */
+            --text-color: #2b2d42;
+            --bg-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 450px;
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ส่วนหัวการ์ด */
+        .card-header {
+            background: linear-gradient(135deg, #4ed1c5 0%, #2ec4b6 100%);
+            height: 140px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        /* วงกลมรูปโปรไฟล์ (ใส่ไอคอนแทนรูปภาพ) */
+        .avatar-container {
+            width: 110px;
+            height: 110px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: -55px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+        }
+
+        .avatar-container i {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+        }
+
+        /* ส่วนเนื้อหา */
+        .card-body {
+            padding: 75px 30px 40px 30px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .nickname {
+            font-size: 1.1rem;
+            color: #718096;
+            font-weight: 400;
+            margin-bottom: 30px;
+            background: var(--secondary-color);
+            display: inline-block;
+            padding: 3px 15px;
+            border-radius: 20px;
+        }
+
+        /* ส่วนรายละเอียดข้อมูล */
+        .info-list {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #fdfdfd;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+        }
+
+        .info-item:hover {
+            background: #fff;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(46, 196, 182, 0.1);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* แยกสีไอคอนตามหัวข้อเพื่อความสวยงาม */
+        .icon-birthday { background-color: #ffe5ec; color: #ff5c8a; }
+        .icon-food { background-color: #fef1d2; color: var(--accent-color); }
+        .icon-color { background-color: #e2f0d9; color: #2e7d32; }
+
+        .info-content .label {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .info-content .value {
+            font-size: 1.05rem;
