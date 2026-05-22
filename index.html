@@ -31,7 +31,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 40px 20px; /* เพิ่ม padding บน-ล่าง สำหรับรองรับกล่องที่ยาวขึ้น */
         }
 
         .profile-card {
@@ -135,16 +135,15 @@
             align-items: center;
             margin-right: 15px;
             font-size: 1.2rem;
-            flex-shrink: 0;
+            flex-shrink: 0; /* ป้องกันไม่ให้ไอคอนเบี้ยวเวลาข้อความยาว */
         }
 
         /* แยกสีไอคอนตามหัวข้อเพื่อความสวยงาม */
         .icon-birthday { background-color: #ffe5ec; color: #ff5c8a; }
         .icon-food { background-color: #fef1d2; color: var(--accent-color); }
         .icon-color { background-color: #e2f0d9; color: #2e7d32; }
-        .icon-subject { background-color: #e0f2fe; color: #0284c7; }
-        .icon-friends { background-color: #f3e8ff; color: #9333ea; }
-        .icon-cartoon { background-color: #ffedd5; color: #ea580c; }
+        .icon-subject { background-color: #e0f2fe; color: #0284c7; } /* สีน้ำเงินสำหรับวิชาเรียน */
+        .icon-cartoon-friend { background-color: #f3e8ff; color: #9333ea; } /* สีม่วงสำหรับการ์ตูน */
 
         .info-content .label {
             font-size: 0.85rem;
@@ -233,22 +232,12 @@
                 </div>
 
                 <div class="info-item">
-                    <div class="info-icon icon-friends">
-                        <i class="fa-solid fa-user-group"></i>
+                    <div class="info-icon icon-cartoon-friend">
+                        <i class="fa-solid fa-mask"></i>
                     </div>
                     <div class="info-content">
-                        <span class="label">เพื่อนสนิท</span>
-                        <span class="value">ใส่ชื่อเพื่อนสนิทตรงนี้ได้เลยจ้า 💖</span>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon icon-cartoon">
-                        <i class="fa-solid fa-tv"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">การ์ตูนที่ชอบ</span>
-                        <span class="value">ใส่ชื่อการ์ตูนที่ชอบตรงนี้ได้เลยจ้า 🎬</span>
+                        <span class="label">เพื่อนสนิทชื่อการ์ตูน</span>
+                        <span class="value">ใส่ชื่อการ์ตูนตรงนี้ได้เลยจ้า 🎬</span>
                     </div>
                 </div>
 
