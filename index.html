@@ -3,245 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว - น้องปิม</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <title>การ์ดประวัติส่วนตัวนักเรียน - จิรชยา แสนสัจจะ</title>
     <style>
-        :root {
-            --primary-color: #2ec4b6; /* สีเขียวมินต์สดใส */
-            --secondary-color: #cbf3f0; /* สีเขียวพาสเทลอ่อน */
-            --accent-color: #ff9f1c; /* สีส้มตัดสลับให้ดูมีมิติ */
-            --text-color: #2b2d42;
-            --bg-color: #f8f9fa;
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
-
-        * {
+        
+        body {
+            font-family: 'ChulaCharasNew', 'Sarabun', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f4f1;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Kanit', sans-serif;
+            color: #2c3e50;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf5 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
+        /* Container designed to fit nicely on an A4 page */
+        .page-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
         .profile-card {
-            background: rgba(255, 255, 255, 0.95);
-            max-width: 450px;
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.1);
             overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease;
+            border: 1px solid #e2ebd5;
         }
 
-        .profile-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* ส่วนหัวการ์ด */
+        /* Header Section with Emerald Green theme */
         .card-header {
-            background: linear-gradient(135deg, #4ed1c5 0%, #2ec4b6 100%);
-            height: 140px;
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: #ffffff;
+            padding: 40px 30px;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-        }
-
-        /* วงกลมรูปโปรไฟล์ (ใส่ไอคอนแทนรูปภาพ) */
-        .avatar-container {
-            width: 110px;
-            height: 110px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            bottom: -55px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border: 4px solid white;
-        }
-
-        .avatar-container i {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-        }
-
-        /* ส่วนเนื้อหา */
-        .card-body {
-            padding: 75px 30px 40px 30px;
             text-align: center;
         }
 
-        .name {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 5px;
+        .school-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .student-name {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .student-meta {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
         }
 
         .nickname {
-            font-size: 1.1rem;
-            color: #718096;
-            font-weight: 400;
-            margin-bottom: 30px;
-            background: var(--secondary-color);
-            display: inline-block;
-            padding: 3px 15px;
-            border-radius: 20px;
-        }
-
-        /* ส่วนรายละเอียดข้อมูล */
-        .info-list {
-            text-align: left;
-            margin-top: 10px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            background: #fdfdfd;
+            background: #e8f5e9;
+            color: #1b5e20;
+            padding: 2px 12px;
             border-radius: 12px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* Quote Section */
+        .quote-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #81c784;
+            padding: 12px 20px;
+            margin: 15px auto 0 auto;
+            max-width: 500px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .quote-text {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #f1f8e9;
+        }
+
+        /* Card Body Layout using tables/blocks for clean rendering without flex bugs */
+        .card-body {
+            padding: 35px;
+        }
+
+        .grid-layout {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .grid-column {
+            display: table-cell;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        .grid-column:first-child {
+            padding-right: 20px;
+        }
+
+        .grid-column:last-child {
+            padding-left: 20px;
+        }
+
+        /* Sections and Information Styling */
+        .section-title {
+            color: #1b5e20;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #a5d6a7;
+        }
+
+        .info-group {
+            margin-bottom: 25px;
+            background: #fbfdfb;
+            border: 1px solid #edf4ee;
+            border-radius: 12px;
+            padding: 15px 20px;
+        }
+
+        .info-row {
+            display: table;
+            width: 100%;
             margin-bottom: 12px;
-            border: 1px solid #edf2f7;
-            transition: all 0.2s ease;
         }
 
-        .info-item:hover {
-            background: #fff;
-            border-color: var(--primary-color);
-            box-shadow: 0 4px 12px rgba(46, 196, 182, 0.1);
+        .info-row:last-child {
+            margin-bottom: 0;
         }
 
-        .info-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+        .info-label {
+            display: table-cell;
+            width: 40%;
+            font-weight: 600;
+            color: #556b2f;
         }
 
-        /* แยกสีไอคอนตามหัวข้อเพื่อความสวยงาม */
-        .icon-birthday { background-color: #ffe5ec; color: #ff5c8a; }
-        .icon-food { background-color: #fef1d2; color: var(--accent-color); }
-        .icon-color { background-color: #e2f0d9; color: #2e7d32; }
-        .icon-subject { background-color: #e0f2fe; color: #0284c7; }
-        .icon-friends { background-color: #f3e8ff; color: #9333ea; }
-
-        .info-content .label {
-            font-size: 0.85rem;
-            color: #a0aec0;
-            display: block;
-            line-height: 1.2;
+        .info-value {
+            display: table-cell;
+            width: 60%;
+            color: #2c3e50;
         }
 
-        .info-content .value {
-            font-size: 1.05rem;
-            color: var(--text-color);
+        /* Tags / Pills for Skills and Interests */
+        .tag-container {
+            margin-top: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #c8e6c9;
             font-weight: 500;
         }
 
-        /* ตกแต่งแท็กสีเขียวที่ชอบเพิ่มความกิ๊บเก๋ */
-        .color-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .tag.blue {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            border-color: #bbdefb;
         }
-        
-        .color-dot {
-            width: 14px;
-            height: 14px;
-            background-color: #4CAF50;
-            border-radius: 50%;
-            display: inline-block;
-            border: 1px solid rgba(0,0,0,0.1);
+
+        .tag.purple {
+            background-color: #f3e5f5;
+            color: #6a1b9a;
+            border-color: #e1bee7;
+        }
+
+        /* Footer styling */
+        .card-footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f8f4;
+            border-top: 1px solid #edf4ee;
+            font-size: 0.85rem;
+            color: #758a77;
+        }
+
+        /* Print optimization for A4 */
+        @media print {
+            body {
+                background-color: #ffffff;
+            }
+            .page-container {
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+            .profile-card {
+                box-shadow: none;
+                border: 1px solid #cccccc;
+                border-radius: 12px;
+            }
+            .card-header {
+                background: linear-gradient(135deg, #1b5e20, #2e7d32) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .tag {
+                background-color: #e8f5e9 !important;
+                color: #2e7d32 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-card">
-        <div class="card-header">
-            <div class="avatar-container">
-                <i class="fa-solid fa-child-dress"></i>
+    <div class="page-container">
+        <div class="profile-card">
+            
+            <!-- HEADER SECTION -->
+            <div class="card-header">
+                <div class="school-badge">โรงเรียนจอมทอง</div>
+                <h1 class="student-name">เด็กหญิง จิรชยา แสนสัจจะ</h1>
+                <div class="student-meta">
+                    ชั้นมัธยมศึกษาปีที่ 3 <span class="nickname">ชื่อเล่น: ปิม</span>
+                </div>
+                <div class="quote-box">
+                    <p class="quote-text">"no rain no flower"</p>
+                </div>
             </div>
-        </div>
 
-        <div class="card-body">
-            <h1 class="name">ด.ญ. จิรชยา แสนสัจจะ</h1>
-            <span class="nickname">ชื่อเล่น: <b>น้องปิม</b></span>
+            <!-- BODY SECTION -->
+            <div class="card-body">
+                <div class="grid-layout">
+                    
+                    <!-- LEFT COLUMN: PERSONAL INFO & EDUCATION -->
+                    <div class="grid-column">
+                        
+                        <h2 class="section-title">ข้อมูลส่วนตัวทั่วไป</h2>
+                        <div class="info-group">
+                            <div class="info-row">
+                                <div class="info-label">วันเกิด:</div>
+                                <div class="info-value">10 พฤษภาคม 2555</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">เพศ / กรุ๊ปเลือด:</div>
+                                <div class="info-value">หญิง / AB</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">ราศี:</div>
+                                <div class="info-value">เมษ</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">ภูมิลำเนา:</div>
+                                <div class="info-value">เชียงใหม่</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">ส่วนสูง:</div>
+                                <div class="info-value">163 ซม.</div>
+                            </div>
+                        </div>
 
-            <div class="info-list">
-                <div class="info-item">
-                    <div class="info-icon icon-birthday">
-                        <i class="fa-solid fa-cake-candles"></i>
+                        <h2 class="section-title">การเรียน & กิจกรรม</h2>
+                        <div class="info-group">
+                            <div class="info-row">
+                                <div class="info-label">วิชาที่ชอบ:</div>
+                                <div class="info-value" style="color: #2e7d32; font-weight: bold;">อังกฤษ</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">วิชาที่ยาก:</div>
+                                <div class="info-value" style="color: #c62828;">คอมพิวเตอร์</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">ชมรม/กิจกรรม:</div>
+                                <div class="info-value">นักพฤกษศาสตร์</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">เพื่อนสนิท:</div>
+                                <div class="info-value">การ์ตูน</div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">เป้าหมายในอนาคต</h2>
+                        <div class="info-group" style="border-left: 4px solid #2e7d32;">
+                            <div class="info-row">
+                                <div class="info-label">ความฝัน/อาชีพ:</div>
+                                <div class="info-value" style="font-weight: bold; color: #1b5e20;">นักรังสีเทคนิค สายบันเทิง</div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="info-content">
-                        <span class="label">วันเกิด</span>
-                        <span class="value">10 พฤษภาคม 2555</span>
+
+                    <!-- RIGHT COLUMN: LIFE STYLE & SKILLS -->
+                    <div class="grid-column">
+                        
+                        <h2 class="section-title">ไลฟ์สไตล์ & สิ่งที่ชอบ</h2>
+                        <div class="info-group">
+                            <div class="info-row">
+                                <div class="info-label">อาหารโปรด:</div>
+                                <div class="info-value">ก๋วยเตี๋ยวต้มยำ</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">สีที่ชอบ:</div>
+                                <div class="info-value"><span style="color: #2e7d32; font-weight: bold;">🟢 เขียว</span></div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">งานอดิเรก:</div>
+                                <div class="info-value">ดูการ์ตูน</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">กีฬา:</div>
+                                <div class="info-value">แบดมินตัน</div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">บันเทิงที่โปรดปราน</h2>
+                        <div class="info-group">
+                            <div class="info-row">
+                                <div class="info-label">แนวเพลง:</div>
+                                <div class="info-value">kpop R&b</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">ซีรีส์ / อนิเมะ:</div>
+                                <div class="info-value" style="font-style: italic;">Jujutsu kaisen</div>
+                            </div>
+                        </div>
+
+                        <h2 class="section-title">ทักษะและความสามารถ</h2>
+                        <div class="tag-container">
+                            <span class="tag">ทำอาหาร</span>
+                            <span class="tag">เรียนรู้ภาษา</span>
+                            <span class="tag blue">ภาษาอังกฤษ</span>
+                            <span class="tag purple">การปรับตัว</span>
+                        </div>
+
                     </div>
+
                 </div>
-
-                <div class="info-item">
-                    <div class="info-icon icon-food">
-                        <i class="fa-solid fa-bowl-food"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">อาหารที่ชอบ</span>
-                        <span class="value">ก๋วยเตี๋ยว 🍜</span>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon icon-color">
-                        <i class="fa-solid fa-palette"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">สีที่ชอบ</span>
-                        <span class="value color-tag">
-                            <span class="color-dot"></span> สีเขียว
-                        </span>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon icon-subject">
-                        <i class="fa-solid fa-language"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">วิชาที่ชอบ</span>
-                        <span class="value">ภาษาอังกฤษ (English) 🔤</span>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon icon-friends">
-                        <i class="fa-solid fa-user-group"></i>
-                    </div>
-                    <div class="info-content">
-                        <span class="label">เพื่อนสนิท</span>
-                        <span class="value">การ์ตูน 👭💖</span>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- FOOTER SECTION -->
+            <div class="card-footer">
+                Student Profile Card • โรงเรียนจอมทอง • รองรับการพิมพ์ขนาด A4
+            </div>
+
         </div>
     </div>
 
