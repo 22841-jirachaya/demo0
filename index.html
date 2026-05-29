@@ -3,364 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>การ์ดประวัติส่วนตัวนักเรียน - จิรชยา แสนสัจจะ</title>
+    <title>การ์ดประวัติส่วนตัวนักเรียน - น้องปิม</title>
     <style>
-        *, *::before, *::after {
+        /* CSS Reset & Google Fonts via safe web fonts fallback & custom style */
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Mitr:wght@300;400;500&display=swap');
+
+        * {
             box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'ChulaCharasNew', 'Sarabun', 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f4f1;
             margin: 0;
             padding: 0;
-            color: #2c3e50;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
         }
 
-        /* Container designed to fit nicely on an A4 page */
-        .page-container {
-            max-width: 800px;
-            margin: 40px auto;
+        body {
+            font-family: 'Mitr', 'Chakra Petch', sans-serif;
+            background-color: #f0f7f4;
+            color: #2c3e50;
+            display: block;
             padding: 20px;
         }
 
-        .profile-card {
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.1);
-            overflow: hidden;
-            border: 1px solid #e2ebd5;
+        /* A4 Print Optimization */
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
         }
 
-        /* Header Section with Emerald Green theme */
-        .card-header {
-            background: linear-gradient(135deg, #1b5e20, #2e7d32);
-            color: #ffffff;
-            padding: 40px 30px;
+        .profile-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 30px rgba(143, 191, 159, 0.2);
+            border: 3px solid #cce3de;
+            overflow: hidden;
             position: relative;
+        }
+
+        /* Decorative Cat Elements */
+        .cat-ear-left {
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            width: 50px;
+            height: 50px;
+            background: #a3b19b;
+            transform: rotate(-15deg);
+            border-radius: 12px 0 0 0;
+            z-index: 1;
+        }
+        .cat-ear-left::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            background: #f1c0e8;
+            border-radius: 8px 0 0 0;
+        }
+
+        .cat-ear-right {
+            position: absolute;
+            top: -15px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: #a3b19b;
+            transform: rotate(15deg);
+            border-radius: 0 12px 0 0;
+            z-index: 1;
+        }
+        .cat-ear-right::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: #f1c0e8;
+            border-radius: 0 8px 0 0;
+        }
+
+        /* Header Section */
+        .card-header {
+            background: linear-gradient(135deg, #a3b19b 0%, #6b7b65 100%);
+            padding: 35px 30px;
+            color: white;
             text-align: center;
+            position: relative;
+            border-bottom: 5px solid #e8f5e9;
+        }
+
+        .avatar-container {
+            width: 110px;
+            height: 110px;
+            background: #ffffff;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: table;
+            text-align: center;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .avatar-emoji {
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 55px;
+        }
+
+        .card-header h1 {
+            font-size: 24pt;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
         }
 
         .school-badge {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
             display: inline-block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.25);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 11pt;
+            font-weight: 400;
+            backdrop-filter: blur(5px);
         }
 
-        .student-name {
-            margin: 0 0 10px 0;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .student-meta {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .nickname {
-            background: #e8f5e9;
-            color: #1b5e20;
-            padding: 2px 12px;
-            border-radius: 12px;
-            font-weight: bold;
-            margin-left: 5px;
-        }
-
-        /* Quote Section */
-        .quote-box {
-            background: rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #81c784;
-            padding: 12px 20px;
-            margin: 15px auto 0 auto;
-            max-width: 500px;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-        }
-
-        .quote-text {
-            margin: 0;
-            font-size: 1.1rem;
-            color: #f1f8e9;
-        }
-
-        /* Card Body Layout using tables/blocks for clean rendering without flex bugs */
+        /* Main Content Layout using Table for WeasyPrint compatibility */
         .card-body {
-            padding: 35px;
-        }
-
-        .grid-layout {
             display: table;
             width: 100%;
-            table-layout: fixed;
+            padding: 25px;
         }
 
-        .grid-column {
+        .card-column {
             display: table-cell;
-            vertical-align: top;
             width: 50%;
+            vertical-align: top;
+            padding: 0 15px;
         }
 
-        .grid-column:first-child {
-            padding-right: 20px;
+        /* Section Styling */
+        .section-box {
+            background: #fcfdfe;
+            border: 1px solid #e1ebd9;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 20px;
+            page-break-inside: avoid;
         }
 
-        .grid-column:last-child {
-            padding-left: 20px;
-        }
-
-        /* Sections and Information Styling */
         .section-title {
-            color: #1b5e20;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 18px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #a5d6a7;
+            font-size: 13pt;
+            color: #4a5d45;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border-left: 5px solid #8fa882;
+            padding-left: 10px;
+            display: block;
         }
 
-        .info-group {
-            margin-bottom: 25px;
-            background: #fbfdfb;
-            border: 1px solid #edf4ee;
-            border-radius: 12px;
-            padding: 15px 20px;
-        }
-
+        /* Info Item Rows */
         .info-row {
             display: table;
             width: 100%;
-            margin-bottom: 12px;
-        }
-
-        .info-row:last-child {
-            margin-bottom: 0;
+            margin-bottom: 10px;
+            font-size: 10.5pt;
         }
 
         .info-label {
             display: table-cell;
             width: 40%;
-            font-weight: 600;
-            color: #556b2f;
+            font-weight: 500;
+            color: #7f8c8d;
         }
 
         .info-value {
             display: table-cell;
             width: 60%;
             color: #2c3e50;
+            font-weight: 400;
         }
 
-        /* Tags / Pills for Skills and Interests */
-        .tag-container {
-            margin-top: 8px;
+        /* Pills / Tags */
+        .pill-container {
+            margin-top: 5px;
         }
 
-        .tag {
+        .pill {
             display: inline-block;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-right: 8px;
+            background-color: #eaf2e8;
+            color: #4a6341;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 9.5pt;
+            margin-right: 6px;
             margin-bottom: 8px;
-            border: 1px solid #c8e6c9;
+            border: 1px solid #d4e4cf;
             font-weight: 500;
         }
+        
+        .pill.pink {
+            background-color: #fbebf5;
+            color: #9c4179;
+            border-color: #f5d6eb;
+        }
 
-        .tag.blue {
+        .pill.blue {
             background-color: #e3f2fd;
-            color: #1565c0;
+            color: #1e88e5;
             border-color: #bbdefb;
         }
 
-        .tag.purple {
-            background-color: #f3e5f5;
-            color: #6a1b9a;
-            border-color: #e1bee7;
+        /* Motto Section */
+        .motto-box {
+            text-align: center;
+            background: linear-gradient(to right, #f4f9f2, #eaf4e5, #f4f9f2);
+            border: 1px dashed #8fa882;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 10px 15px 25px;
+            page-break-inside: avoid;
         }
 
-        /* Footer styling */
+        .motto-title {
+            font-size: 11pt;
+            color: #71836a;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .motto-text {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 16pt;
+            color: #3b5233;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        /* Footer Decor */
         .card-footer {
             text-align: center;
-            padding: 20px;
-            background-color: #f4f8f4;
-            border-top: 1px solid #edf4ee;
-            font-size: 0.85rem;
-            color: #758a77;
+            padding: 15px;
+            background: #f7faf6;
+            border-top: 1px solid #eaf2e8;
+            font-size: 9pt;
+            color: #95a5a6;
         }
 
-        /* Print optimization for A4 */
+        .cat-icon-footer {
+            font-size: 16px;
+            margin: 0 4px;
+        }
+
+        /* Print Media CSS */
         @media print {
             body {
                 background-color: #ffffff;
-            }
-            .page-container {
-                margin: 0;
                 padding: 0;
-                max-width: 100%;
             }
             .profile-card {
                 box-shadow: none;
-                border: 1px solid #cccccc;
-                border-radius: 12px;
-            }
-            .card-header {
-                background: linear-gradient(135deg, #1b5e20, #2e7d32) !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .tag {
-                background-color: #e8f5e9 !important;
-                color: #2e7d32 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                border: 2px solid #a3b19b;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="page-container">
-        <div class="profile-card">
+    <div class="profile-card">
+        <!-- Cute Cat Ears Decor -->
+        <div class="cat-ear-left"></div>
+        <div class="cat-ear-right"></div>
+
+        <!-- Header -->
+        <div class="card-header">
+            <div class="avatar-container">
+                <div class="avatar-emoji">🐱</div>
+            </div>
+            <h1>เด็กหญิง จิรชยา แสนสัจจะ (ปิม)</h1>
+            <div class="school-badge">🏫 โรงเรียนจอมทอง | ชั้นมัธยมศึกษาปีที่ 3 🎓</div>
+        </div>
+
+        <!-- Motto Box -->
+        <div class="motto-box">
+            <div class="motto-title">✨ คติประจำใจ ✨</div>
+            <div class="motto-text">"no rain no flower" 🌧️🌸</div>
+        </div>
+
+        <!-- Card Body Layout -->
+        <div class="card-body">
             
-            <!-- HEADER SECTION -->
-            <div class="card-header">
-                <div class="school-badge">โรงเรียนจอมทอง</div>
-                <h1 class="student-name">เด็กหญิง จิรชยา แสนสัจจะ</h1>
-                <div class="student-meta">
-                    ชั้นมัธยมศึกษาปีที่ 3 <span class="nickname">ชื่อเล่น: ปิม</span>
-                </div>
-                <div class="quote-box">
-                    <p class="quote-text">"no rain no flower"</p>
-                </div>
-            </div>
-
-            <!-- BODY SECTION -->
-            <div class="card-body">
-                <div class="grid-layout">
-                    
-                    <!-- LEFT COLUMN: PERSONAL INFO & EDUCATION -->
-                    <div class="grid-column">
-                        
-                        <h2 class="section-title">ข้อมูลส่วนตัวทั่วไป</h2>
-                        <div class="info-group">
-                            <div class="info-row">
-                                <div class="info-label">วันเกิด:</div>
-                                <div class="info-value">10 พฤษภาคม 2555</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">เพศ / กรุ๊ปเลือด:</div>
-                                <div class="info-value">หญิง / AB</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">ราศี:</div>
-                                <div class="info-value">เมษ</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">ภูมิลำเนา:</div>
-                                <div class="info-value">เชียงใหม่</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">ส่วนสูง:</div>
-                                <div class="info-value">163 ซม.</div>
-                            </div>
-                        </div>
-
-                        <h2 class="section-title">การเรียน & กิจกรรม</h2>
-                        <div class="info-group">
-                            <div class="info-row">
-                                <div class="info-label">วิชาที่ชอบ:</div>
-                                <div class="info-value" style="color: #2e7d32; font-weight: bold;">อังกฤษ</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">วิชาที่ยาก:</div>
-                                <div class="info-value" style="color: #c62828;">คอมพิวเตอร์</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">ชมรม/กิจกรรม:</div>
-                                <div class="info-value">นักพฤกษศาสตร์</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">เพื่อนสนิท:</div>
-                                <div class="info-value">การ์ตูน</div>
-                            </div>
-                        </div>
-
-                        <h2 class="section-title">เป้าหมายในอนาคต</h2>
-                        <div class="info-group" style="border-left: 4px solid #2e7d32;">
-                            <div class="info-row">
-                                <div class="info-label">ความฝัน/อาชีพ:</div>
-                                <div class="info-value" style="font-weight: bold; color: #1b5e20;">นักรังสีเทคนิค สายบันเทิง</div>
-                            </div>
-                        </div>
-
+            <!-- Left Column -->
+            <div class="card-column">
+                
+                <!-- Section 1: ข้อมูลทั่วไป -->
+                <div class="section-box">
+                    <span class="section-title">📋 ข้อมูลทั่วไป</span>
+                    <div class="info-row">
+                        <div class="info-label">🎂 วันเกิด</div>
+                        <div class="info-value">10 พฤษภาคม 2555</div>
                     </div>
-
-                    <!-- RIGHT COLUMN: LIFE STYLE & SKILLS -->
-                    <div class="grid-column">
-                        
-                        <h2 class="section-title">ไลฟ์สไตล์ & สิ่งที่ชอบ</h2>
-                        <div class="info-group">
-                            <div class="info-row">
-                                <div class="info-label">อาหารโปรด:</div>
-                                <div class="info-value">ก๋วยเตี๋ยวต้มยำ</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">สีที่ชอบ:</div>
-                                <div class="info-value"><span style="color: #2e7d32; font-weight: bold;">🟢 เขียว</span></div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">งานอดิเรก:</div>
-                                <div class="info-value">ดูการ์ตูน</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">กีฬา:</div>
-                                <div class="info-value">แบดมินตัน</div>
-                            </div>
-                        </div>
-
-                        <h2 class="section-title">บันเทิงที่โปรดปราน</h2>
-                        <div class="info-group">
-                            <div class="info-row">
-                                <div class="info-label">แนวเพลง:</div>
-                                <div class="info-value">kpop R&b</div>
-                            </div>
-                            <div class="info-row">
-                                <div class="info-label">ซีรีส์ / อนิเมะ:</div>
-                                <div class="info-value" style="font-style: italic;">Jujutsu kaisen</div>
-                            </div>
-                        </div>
-
-                        <h2 class="section-title">ทักษะและความสามารถ</h2>
-                        <div class="tag-container">
-                            <span class="tag">ทำอาหาร</span>
-                            <span class="tag">เรียนรู้ภาษา</span>
-                            <span class="tag blue">ภาษาอังกฤษ</span>
-                            <span class="tag purple">การปรับตัว</span>
-                        </div>
-
+                    <div class="info-row">
+                        <div class="info-label">⚥ เพศ</div>
+                        <div class="info-value">หญิง</div>
                     </div>
-
+                    <div class="info-row">
+                        <div class="info-label">🩸 กรุ๊ปเลือด</div>
+                        <div class="info-value">AB</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🌌 ราศี</div>
+                        <div class="info-value">เมษ</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🧍 ส่วนสูง</div>
+                        <div class="info-value">163 ซม.</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🏡 ภูมิลำเนา</div>
+                        <div class="info-value">เชียงใหม่</div>
+                    </div>
                 </div>
+
+                <!-- Section 2: การเรียนและกิจกรรม -->
+                <div class="section-box">
+                    <span class="section-title">🎒 การเรียน & กิจกรรม</span>
+                    <div class="info-row">
+                        <div class="info-label">💚 วิชาที่ชอบ</div>
+                        <div class="info-value">อังกฤษ 🇬🇧</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">💻 วิชาที่ยาก</div>
+                        <div class="info-value">คอมพิวเตอร์ 🖥️</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🌿 ชมรม/กิจกรรม</div>
+                        <div class="info-value">นักพฤกษศาสตร์ 🔍🌱</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🤝 เพื่อนสนิท</div>
+                        <div class="info-value">การ์ตูน 🧸</div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- FOOTER SECTION -->
-            <div class="card-footer">
-                Student Profile Card • โรงเรียนจอมทอง • รองรับการพิมพ์ขนาด A4
+            <!-- Right Column -->
+            <div class="card-column">
+                
+                <!-- Section 3: ทักษะและความฝัน -->
+                <div class="section-box">
+                    <span class="section-title">🎯 ทักษะอนาคต & ความฝัน</span>
+                    <div class="info-row" style="margin-bottom: 12px;">
+                        <div class="info-label" style="display:block; width:100%; margin-bottom: 5px;">🌟 ทักษะที่มี</div>
+                        <div class="info-value" style="display:block; width:100%;">
+                            <div class="pill-container">
+                                <span class="pill">🍳 ทำอาหาร</span>
+                                <span class="pill">🗣️ เรียนรู้ภาษา</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label" style="display:block; width:100%; margin-bottom: 5px;">🚀 ความฝัน/อาชีพ</div>
+                        <div class="info-value" style="display:block; width:100%;">
+                            <div class="pill-container">
+                                <span class="pill pink">🩻 นักรังสีเทคนิค</span>
+                                <span class="pill pink">🎬 อาชีพสายบันเทิง</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: ไลฟ์สไตล์และของโปรด -->
+                <div class="section-box">
+                    <span class="section-title">💖 ไลฟ์สไตล์ & ของโปรด</span>
+                    <div class="info-row">
+                        <div class="info-label">🍜 อาหารโปรด</div>
+                        <div class="info-value">ก๋วยเตี๋ยวต้มยำ 🌶️</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🎨 สีโปรด</div>
+                        <div class="info-value"><span class="pill" style="margin:0; background-color:#e8f5e9; color:#2e7d32; border-color:#c8e6c9;">เขียว 🟢</span></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🎞️ งานอดิเรก</div>
+                        <div class="info-value">ดูการ์ตูน 📺</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🏸 กีฬา</div>
+                        <div class="info-value">แบดมินตัน</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🎵 เพลงที่ชอบ</div>
+                        <div class="info-value">K-pop , R&B 🎶</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">🎬 ซีรีส์/อนิเมะ</div>
+                        <div class="info-value"><span class="pill blue" style="margin:0;">Jujutsu Kaisen 💥</span></div>
+                    </div>
+                </div>
+
             </div>
 
+        </div>
+
+        <!-- Footer -->
+        <div class="card-footer">
+            <span class="cat-icon-footer">🐾</span> Student Profile Card • Jirachaya Saensatja <span class="cat-icon-footer">🐾</span>
         </div>
     </div>
 
